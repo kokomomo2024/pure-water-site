@@ -52,7 +52,7 @@ header .logo{font-weight:bold;color:var(--main);font-size:32px;animation:pulse 2
 
 /* Menu */
 nav{position:absolute;top:65px;right:20px;background:#fff;display:none;flex-direction:column;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,.3);}
-nav a{padding:14px 30px;text-decoration:none;font-weight:bold;color:#000;}
+nav a{padding:14px 30px;text-decoration:none;font-weight:bold;color:#000; cursor: pointer;}
 nav a:hover{background:var(--main);color:#fff;}
 nav.show{display:flex}
 
@@ -77,6 +77,18 @@ h1,h2,h3,p{font-weight:bold;position:relative; z-index:1;text-shadow:1px 1px 3px
 .gallery .product:hover{transform: perspective(600px) rotateY(10deg) rotateX(5deg) scale(1.05);box-shadow:0 15px 25px rgba(0,0,0,0.3);}
 .gallery img{width:100%;border-radius:10px;margin-bottom:10px;}
 
+/* Order Link Style */
+.order-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #25d366; /* لون واتساب الأخضر */
+    color: #fff !important;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
 /* Services Icons */
 .services-list{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;position:relative; z-index:1;}
 .services-list div{background:rgba(255,255,255,0.6);padding:20px 25px;border-radius:15px;color:var(--text);font-weight:bold;display:flex;flex-direction:column;align-items:center;width:150px;}
@@ -97,6 +109,7 @@ function showPage(id){
     document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
     document.getElementById(id).classList.add("active");
     document.getElementById("nav").classList.remove("show");
+    window.scrollTo(0,0);
 }
 document.addEventListener("click",e=>{
     const nav=document.getElementById("nav");
@@ -127,15 +140,13 @@ document.addEventListener("click",e=>{
   </nav>
 </header>
 
-<!-- الصفحة الرئيسية -->
-<section id="home" style="background:linear-gradient(120deg,#ffb6c1,#ffe6f0);">
+<section id="home" class="active" style="background:linear-gradient(120deg,#ffb6c1,#ffe6f0);">
 <h2>الصفحة الرئيسية</h2>
 <div class="card">
 الفلتر المنزلي يعمل على تنقية المياه من الشوائب والكلور والمواد الضارة، لضمان مياه صالحة للشرب والطهي والاستحمام، ويحافظ على صحة الأسرة.
 </div>
 </section>
 
-<!-- PRODUCTS -->
 <section id="products" style="background:linear-gradient(120deg,#ffb6c1,#ffe6f0);">
 <h2>المنتجات والفلاتر</h2>
 <div class="gallery">
@@ -143,24 +154,23 @@ document.addEventListener("click",e=>{
     <img src="https://bdwaterpurifier.com/wp-content/uploads/2021/06/AQUA-PRO-A6-75-GPD.jpg" alt="فلتر 1">
     <h3>فلتر Aqua Pro</h3>
     <p>السعر: 3700 جنيه</p>
-    <a class="services-list" href="https://wa.me/201143838800?text=أريد+طلب+فلتر+Aqua+Pro">طلب عبر واتساب</a>
+    <a class="order-link" href="https://wa.me/201143383800?text=أريد+طلب+فلتر+Aqua+Pro">طلب عبر واتساب</a>
   </div>
   <div class="product">
     <img src="https://cdn.brita.net/.imaging/opt/1627308075633/dam/jcr%3Acc3f9d5d-a1f3-4039-b010-95f8a6c90ad6/brita_filter_purityc1000ac.png" alt="فلتر 2">
     <h3>فلتر Brita Purity</h3>
     <p>السعر: 950 جنيه</p>
-    <a class="services-list" href="https://wa.me/201143838800?text=أريد+طلب+فلتر+Brita+Purity">طلب عبر واتساب</a>
+    <a class="order-link" href="https://wa.me/201143383800?text=أريد+طلب+فلتر+Brita+Purity">طلب عبر واتساب</a>
   </div>
   <div class="product">
     <img src="https://digitalassets.reecegroup.com.au/m/84411734d49a019e/Web_1200x900-BWT-Professional-Plus-Series-Inline-Water-Filter-Kit-1-Micron.jpg" alt="فلتر 3">
     <h3>فلتر BWT Pro Plus</h3>
     <p>السعر: 1500 جنيه</p>
-    <a class="services-list" href="https://wa.me/201143838800?text=أريد+طلب+فلتر+BWT+Pro+Plus">طلب عبر واتساب</a>
+    <a class="order-link" href="https://wa.me/201143383800?text=أريد+طلب+فلتر+BWT+Pro+Plus">طلب عبر واتساب</a>
   </div>
 </div>
 </section>
 
-<!-- SERVICES -->
 <section id="services" style="background:linear-gradient(120deg,#ffb6c1,#ffe6f0);">
 <h2>الخدمات</h2>
 <div class="services-list">
@@ -170,20 +180,21 @@ document.addEventListener("click",e=>{
 </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact" style="background:linear-gradient(120deg,#ffb6c1,#ffe6f0);">
 <h2>تواصل معنا</h2>
 <div class="card">
 <p>Eng/Mohamed Hassan</p>
 <p>📞 <span>01143383800</span></p>
 <p>WhatsApp: 
-<a href="https://wa.me/20114383800" class="contact-item"><i class="fab fa-whatsapp"></i> 01143383800</a>
+<a href="https://wa.me/201143383800" class="contact-item" style="display:inline-flex; color:#25d366; text-decoration:none;">
+    <i class="fab fa-whatsapp"></i> 01143383800
+</a>
 </p>
 </div>
 </section>
 
-<footer> Pure Water &  Eng/Mohamed Hasaan</footer>  
-</header>
+<footer>Pure Water & Eng/Mohamed Hassan</footer>
+
 </body>
-  </html>
-  
+                                      </html>
+    
